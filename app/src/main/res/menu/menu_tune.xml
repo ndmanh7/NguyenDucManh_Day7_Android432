@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mnFile"
+        android:title="From file"/>
+    <item
+        android:id="@+id/mnDefault"
+        android:title="From defaults"/>
+</menu>
