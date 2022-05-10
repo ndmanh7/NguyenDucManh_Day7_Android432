@@ -1,207 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
-        android:layout_marginVertical="50dp"
-        android:layout_marginHorizontal="50dp"
-        android:id="@+id/fragmentMain"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rlTitle"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="5dp"
-        android:background="#AEA9A9">
-
-        <TextView
+        <RelativeLayout
+            android:id="@+id/rlTitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Create New Note"
-            android:textSize="35dp" />
-        <TextView
-            android:id="@+id/tvSave"
-            android:layout_alignParentRight="true"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="SAVE"
-            android:textSize="20dp" />
+            android:layout_height="70dp"
+            android:layout_marginBottom="5dp"
+            android:background="#AEA9A9">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Create New Note"
+                android:textSize="35dp" />
+
+            <TextView
+                android:id="@+id/tvSave"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="SAVE"
+                android:textSize="20dp" />
 
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-    <EditText
-        android:id="@+id/etTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rlTitle"
-        android:layout_margin="5dp"
-        android:background="@drawable/border"
-        android:text="Title" />
-
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@+id/etTitle"
-        android:layout_margin="5dp"
-        android:background="@drawable/border"
-        android:text="Description" />
-
-    <TextView
-        android:id="@+id/tvRemind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etDescription"
-        android:layout_margin="5dp"
-        android:text="Remind me at:" />
-
-    <LinearLayout
-        android:id="@+id/layoutDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvRemind"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tvTime"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="HH:mm"
-            android:textSize="32dp" />
+            android:background="@drawable/border"
+            android:text="Title" />
 
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="dd/MM/yyyy"
-            android:textSize="32dp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layoutTypePicker"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layoutDate"
-        android:layout_margin="5dp"
-        android:orientation="horizontal">
+            android:background="@drawable/border"
+            android:text="Description" />
 
         <TextView
-            android:id="@+id/tvType"
-            android:layout_width="0dp"
+            android:id="@+id/tvRemind"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="Type: " />
+            android:layout_below="@+id/etDescription"
+            android:layout_margin="5dp"
+            android:text="Remind me at:" />
 
         <LinearLayout
-            android:id="@+id/layoutTypeMenu"
-            android:layout_width="0dp"
+            android:id="@+id/layoutDate"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:background="@drawable/border"
+            android:layout_below="@+id/tvRemind"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvTypeMenu"
+                android:id="@+id/tvTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="8"
-                android:text="Work"
-                android:gravity="center_horizontal"/>
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="HH:mm"
+                android:textSize="32dp" />
 
-            <ImageView
+            <TextView
+                android:id="@+id/tvDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:background="@drawable/border"
-                android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="dd/MM/yyyy"
+                android:textSize="32dp" />
 
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layoutTypePicker"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutDate"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Type: " />
+
+            <LinearLayout
+                android:id="@+id/layoutTypeMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTypeMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:gravity="center_horizontal"
+                    android:text="Work" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/border"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTagsPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutTypePicker"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tvTags"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tags: " />
+
+            <TextView
+                android:id="@+id/tvTagsMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="Choose tags" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutWeekPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutTagsPicker"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tvWeek"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Weeks: " />
+
+            <TextView
+                android:id="@+id/tvWeekMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="Choose days of week" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTune"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutWeekPicker"
+            android:layout_margin="5dp"
+            android:text="Tune" />
+
 
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_margin="5dp"
-        android:id="@+id/layoutTagsPicker"
-        android:layout_below="@+id/layoutTypePicker"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:id="@+id/tvTags"
-            android:text="Tags: "
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tvTagsMenu"
-            android:text="Choose tags"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"/>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_margin="5dp"
-        android:id="@+id/layoutWeekPicker"
-        android:layout_below="@+id/layoutTagsPicker"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:id="@+id/tvWeek"
-            android:text="Weeks: "
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tvWeekMenu"
-            android:text="Choose days of week"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"/>
-
-
-    </LinearLayout>
-
-    <Button
-        android:layout_margin="5dp"
-        android:layout_below="@+id/layoutWeekPicker"
-
-        android:id="@+id/btnTune"
-        android:text="Tune"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-
-
-</RelativeLayout>
+</layout>

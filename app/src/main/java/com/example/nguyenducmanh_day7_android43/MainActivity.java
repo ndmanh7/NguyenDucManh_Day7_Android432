@@ -2,6 +2,7 @@ package com.example.nguyenducmanh_day7_android43;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -17,13 +18,15 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.nguyenducmanh_day7_android43.databinding.ActivityMainBinding;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tvTime, tvDate, tvSave, tvTags, tvWeek, tvTagsMenu, tvWeekMenu;
-    LinearLayout layoutTypeMenu;
-    Button btnTune;
+    ActivityMainBinding binding;
+
+
 
     int hour, minute;
     int day, month, year;
@@ -33,14 +36,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
-        tvTime = findViewById(R.id.tvTime);
-        tvDate = findViewById(R.id.tvDate);
-        tvSave = findViewById(R.id.tvSave);
 
-        //set time
-        tvTime.setOnClickListener(new View.OnClickListener() {
+        //set time thoi gian test
+        binding.tvTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectTime();
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //set date
-        tvDate.setOnClickListener(new View.OnClickListener() {
+        binding.tvDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectDate();
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //set save
-        tvSave.setOnClickListener(new View.OnClickListener() {
+        binding.tvSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //set type
-        layoutTypeMenu = findViewById(R.id.layoutTypeMenu);
-        layoutTypeMenu.setOnClickListener(new View.OnClickListener() {
+
+        binding.layoutTypeMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(getBaseContext(),v);
@@ -95,18 +95,17 @@ public class MainActivity extends AppCompatActivity {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        TextView tvTypeMenu;
-                        tvTypeMenu = findViewById(R.id.tvTypeMenu);
+
 
                         switch (item.getItemId()){
                             case R.id.mnWork:
-                                tvTypeMenu.setText("Work");
+                                binding.tvTypeMenu.setText("Work");
                                 break;
                             case R.id.mnFriend:
-                                tvTypeMenu.setText("Friend");
+                                binding.tvTypeMenu.setText("Friend");
                                 break;
                             case R.id.mnFamily:
-                                tvTypeMenu.setText("Family");
+                                binding.tvTypeMenu.setText("Family");
                                 break;
                         }
                         return false;
@@ -119,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
         //set tune button
 
-        btnTune = findViewById(R.id.btnTune);
-        btnTune.setOnClickListener(new View.OnClickListener() {
+
+        binding.btnTune.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(getBaseContext(),v);
@@ -135,10 +134,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        tvTags = findViewById(R.id.tvTags);
-        tvTagsMenu = findViewById(R.id.tvTagsMenu);
 
-        tvTagsMenu.setOnClickListener(new View.OnClickListener() {
+
+        binding.tvTagsMenu.setOnClickListener(new View.OnClickListener() {
 
 
 
@@ -165,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                        String new1 = al.toString().replace("[","");
                         String new2 = new1.replace("]","");
 
-                            tvTagsMenu.setText(""+new2);
+                            binding.tvTagsMenu.setText(""+new2);
 
                     }
                 });
@@ -185,10 +183,9 @@ public class MainActivity extends AppCompatActivity {
 
         //set weeks
 
-        tvWeek = findViewById(R.id.tvWeek);
-        tvWeekMenu = findViewById(R.id.tvWeekMenu);
 
-        tvWeekMenu.setOnClickListener(new View.OnClickListener() {
+
+        binding.tvWeekMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String[] strings = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
@@ -212,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                         String new1 = al.toString().replace("[","");
                         String new2 = new1.replace("]","");
 
-                        tvWeekMenu.setText(""+new2);
+                        binding.tvWeekMenu.setText(""+new2);
 
                     }
                 });
@@ -236,11 +233,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void selectTime(){
         final boolean is24HourView = true;
-        tvTime = findViewById(R.id.tvTime);
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                tvTime.setText(hourOfDay+":"+minute);
+                binding.tvTime.setText(hourOfDay+":"+minute);
 
             }
 
@@ -251,12 +247,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selectDate(){
-        tvDate = findViewById(R.id.tvDate);
+
 
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                tvDate.setText(dayOfMonth+"/"+month+"/"+year);
+                binding.tvDate.setText(dayOfMonth+"/"+month+"/"+year);
             }
         };
 
