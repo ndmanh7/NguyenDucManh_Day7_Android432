@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
 
-        //set time thoi gian test
+        //set time thoi gian thu
         binding.tvTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
